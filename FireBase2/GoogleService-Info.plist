@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>213516391335-r44hg9aerf0sp2g1ik50db4gcb5lo88k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.213516391335-r44hg9aerf0sp2g1ik50db4gcb5lo88k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB11CvfKEJF4YN3y8MiHfZikIzK5XTjm_Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>213516391335</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>cnecie.toDoWithFireBase</string>
+	<key>PROJECT_ID</key>
+	<string>airy-semiotics-290019</string>
+	<key>STORAGE_BUCKET</key>
+	<string>airy-semiotics-290019.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:213516391335:ios:2bc98acc6b60401ad3dc82</string>
+	<key>DATABASE_URL</key>
+	<string>https://airy-semiotics-290019.firebaseio.com</string>
+</dict>
+</plist>
