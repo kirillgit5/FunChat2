@@ -60,6 +60,31 @@ struct UserInformation: Hashable, Decodable {
         
     }
     
+    init?(document: QueryDocumentSnapshot) {
+           let data = document.data() 
+           guard let firstName = data["firstName"] as? String else { return nil }
+           guard let lastName = data["lastName"] as? String else { return nil }
+           guard let avatarStringURL = data["avatarStringURL"] as? String else { return nil }
+           guard let birthdayTimestamp = data["birthday"] as? Timestamp else { return nil }
+           guard let description = data["description"] as? String else { return nil }
+           guard let place = data["place"] as? String else { return nil }
+           guard let sex = data["sex"] as? String else { return nil }
+           guard let email = data["email"] as? String else { return nil }
+           guard let id = data["uid"] as? String else { return nil }
+           
+           let birthday = birthdayTimestamp.dateValue()
+           self.firstName = firstName
+           self.lastName = lastName
+           self.avatarStringURL = avatarStringURL
+           self.birthday = birthday
+           self.description = description
+           self.id = id
+           self.place = place
+           self.sex = sex
+           self.email = email
+           
+       }
+    
     var dictionaryForSave: [String : Any] {
         var dictionary: [String: Any] = [:]
         dictionary["firstName"] = firstName

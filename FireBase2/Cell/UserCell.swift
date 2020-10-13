@@ -13,21 +13,26 @@ class UserCell: UICollectionViewCell, ConfiguringCell {
     static let reuseId: String = "UserCell"
     
     private let userImageView = UIImageView()
-    private let usernameLabel = UILabel(text: "", font:  .getFontlaoSangamMN20())
+    private let usernameLabel = UILabel(text: "", font:  .getFontlaoSangamMN14())
     private let containerView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
-        containerView.layer.cornerRadius = 6
-        containerView.clipsToBounds = true
-        containerView.backgroundColor = .white
-        containerView.clipsToBounds = true
-        usernameLabel.textAlignment = .center
-        self.layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        backgroundColor = .white
+        self.layer.cornerRadius = 4
+        
+        self.layer.shadowColor = #colorLiteral(red: 0.7411764706, green: 0.7411764706, blue: 0.7411764706, alpha: 1)
         self.layer.shadowRadius = 3
-        self.layer.shadowOpacity = 0.6
-        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.layer.shadowOpacity = 0.5
+        usernameLabel.textAlignment = .center
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.containerView.layer.cornerRadius = 4
+        self.containerView.clipsToBounds = true
     }
     
     required init?(coder: NSCoder) {
@@ -37,7 +42,11 @@ class UserCell: UICollectionViewCell, ConfiguringCell {
     func configure<T>(with value: T) where T : Hashable {
          guard let userInformation = value as? UserInformation else { return }
          usernameLabel.text = userInformation.username
-         userImageView.image = UIImage(named: "avatar")
+        if userInformation.avatarStringURL == "default" {
+            userImageView.image = UIImage(named: "avatar")
+        } else {
+            userImageView.fetchImage(from: userInformation.avatarStringURL)
+        }
      }
 
     
@@ -58,15 +67,15 @@ class UserCell: UICollectionViewCell, ConfiguringCell {
         
         NSLayoutConstraint.activate([
             userImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            userImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 6),
-            userImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -6),
+            userImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            userImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             userImageView.heightAnchor.constraint(equalTo: userImageView.widthAnchor)
         ])
         
         NSLayoutConstraint.activate([
             usernameLabel.topAnchor.constraint(equalTo: userImageView.bottomAnchor),
-            usernameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            usernameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            usernameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 4),
+            usernameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -4),
             usernameLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
         

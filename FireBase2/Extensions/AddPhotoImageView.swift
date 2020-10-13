@@ -16,6 +16,7 @@ class AddPhotoImageView: UIImageView {
         self.contentMode = .scaleAspectFill
         self.clipsToBounds = true
         self.layer.borderWidth = 1
+       
         self.layer.borderColor = UIColor.black.cgColor
     }
     

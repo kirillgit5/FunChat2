@@ -33,18 +33,11 @@ class ActiveChatsCell: UICollectionViewCell, ConfiguringCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with value: UserChat) {
-        userImage.image = UIImage(named: value.userImageString)
-        username.text = value.username
-        userLastMessage.text = value.lastMessage
-    }
-    
     func configure<T>(with value: T) where T : Hashable {
          guard let userChat = value as? UserChat else { return }
-         userImage.image = UIImage(named: userChat.userImageString)
+//        if userChat.userImageString
          username.text = userChat.username
          userLastMessage.text = userChat.lastMessage
-         
      }
     
     private func setupConstraint() {

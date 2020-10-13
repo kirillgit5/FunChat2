@@ -10,15 +10,19 @@ import Foundation
 
 protocol MainTabBarViewModelProtocol {
     init(user: UserInformation)
+    func getUsersViewModel() -> UsersViewModelProtocol
 }
 
 class MainTabBarViewModel: MainTabBarViewModelProtocol {
-    
     private let user: UserInformation
     
     required init(user: UserInformation) {
         self.user = user
     }
+    
+    func getUsersViewModel() -> UsersViewModelProtocol {
+           UsersViewModel(user: user)
+       }
     
     
 }

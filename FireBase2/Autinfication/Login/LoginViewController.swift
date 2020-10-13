@@ -31,13 +31,21 @@ class LoginViewController: UIViewController {
     private let signUpButton = UIButton(title: "Sign up", titleColor: .getRedColorForButton(), backgroundColor: .white)
     
     
-    
+    //MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         designViews()
         addTargetToButtons()
         setupConstrainst()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        emailTextField.text = nil
+        passwordTextField.text = nil
+        super.viewDidDisappear(true)
+    }
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)

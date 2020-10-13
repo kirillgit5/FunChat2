@@ -25,8 +25,9 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let chatVC = MessengerViewController()
-        let usersVC = UsersViewController()
+        let usersVC = UsersViewController(viewModel: viewModel.getUsersViewModel())
         let settingsVC = SettingsViewController()
         
         let chatTabBarImage = UIImage(systemName: "bubble.left.and.bubble.right.fill")

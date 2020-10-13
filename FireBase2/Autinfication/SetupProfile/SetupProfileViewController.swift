@@ -89,6 +89,7 @@ class SetupProfileViewController: UIViewController {
     private func addTarget() {
         loginButton.addTarget(self, action: #selector(login), for: UIControl.Event.touchUpInside)
         birthdayButton.addTarget(self, action: #selector(setData), for: UIControl.Event.touchUpInside)
+        addPhotoButton.addTarget(self, action: #selector(addUserPhoto), for: UIControl.Event.touchUpInside)
         
     }
     
@@ -202,7 +203,7 @@ class SetupProfileViewController: UIViewController {
         print()
         viewModel.setupUserProfile(with: firstNameTextField.text, lastName: lastNameTextField.text,
                                    aboutMe: aboutMeNameTextField.text, place: placeNameTextField.text,
-                                   male: sexSegmentControl.titleForSegment(at: sexSegmentControl.selectedSegmentIndex)) {[unowned self] (successfully) in
+                                   male: sexSegmentControl.titleForSegment(at: sexSegmentControl.selectedSegmentIndex), userImage: addPhotoImageView.image) {[unowned self] (successfully) in
                                     if successfully, let viewModel =  self.viewModel.getMainTabBarViewModel() {
                                         let mainTabBarController = MainTabBarController(viewModel: viewModel)
                                         mainTabBarController.modalPresentationStyle = .fullScreen
@@ -224,11 +225,19 @@ class SetupProfileViewController: UIViewController {
         alert.show(animated: true, vibrate: false, viewController: self)
     }
     
+    @objc func addUserPhoto() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
     
     
     
 }
 
+//MARK: - UIScrollViewDelegate
 extension SetupProfileViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView)  {
         if(scrollView.contentOffset.x != 0){
@@ -237,6 +246,7 @@ extension SetupProfileViewController: UIScrollViewDelegate {
     }
 }
 
+//MARK: - UITextFieldDelegate
 extension SetupProfileViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text, let textRange = Range(range, in: text) else { return true }
@@ -269,5 +279,14 @@ extension SetupProfileViewController: UITextFieldDelegate {
             break
         }
         return true
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension SetupProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        addPhotoImageView.image = image
     }
 }

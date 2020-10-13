@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 protocol AuthNavigationDelegate: class {
     func presentLoginVC()
@@ -27,6 +28,8 @@ class AuntificationViewController: UIViewController {
     private let loginButon = UIButton(title: "Login", titleColor: .getRedColorForButton(), backgroundColor: .white, isShadow: true)
     private lazy var loginVC = LoginViewController()
     private lazy var singUPWithEmailVC = SingUpWithEmailViewController()
+    private lazy var auntificationService = AuthService.shared
+    private lazy var firebaseService = FireStroreService.shared
     
     
     override func viewDidLoad() {
@@ -35,6 +38,7 @@ class AuntificationViewController: UIViewController {
         googleButton.customizeGoogleButton()
         setupConstrains()
         addTargetToButtons()
+        GIDSignIn.sharedInstance().delegate = self
     }
     
     //MARK: - Private Methods
@@ -78,7 +82,8 @@ class AuntificationViewController: UIViewController {
     }
     
     @objc func loginWithGoogle() {
-        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
     }
 }
 
@@ -92,6 +97,35 @@ extension AuntificationViewController: AuthNavigationDelegate {
          singUPWithEmailVC.navigationDelegate = self
         present(singUPWithEmailVC, animated: true, completion: nil)
     }
+}
+
+extension AuntificationViewController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        auntificationService.loginWithGoogle(user: user, error: error) {[unowned self] (result) in
+            switch result {
+            case .success(let user):
+                self.firebaseService.getUserInformation(user: user) { (result) in
+                    switch result {
+                        
+                    case .success(let userInformation):
+                        let viewModel = MainTabBarViewModel(user: userInformation)
+                        let mainTabBarVC = MainTabBarController(viewModel: viewModel)
+                        mainTabBarVC.modalPresentationStyle = .fullScreen
+                        self.present(mainTabBarVC, animated: true)
+                    case .failure(_ :):
+                        let viewModel = SetupProfileViewModel(currentUser: user)
+                        let setupProfileVC = SetupProfileViewController(viewModel: viewModel)
+                        setupProfileVC.modalPresentationStyle = .fullScreen
+                        self.present(setupProfileVC, animated: true)
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    
 }
 
 //MARK: - SwiftUI

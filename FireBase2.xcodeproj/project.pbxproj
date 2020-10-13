@@ -52,17 +52,19 @@
 		EEB70979252773A300365966 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB70978252773A300365966 /* MainTabBarController.swift */; };
 		EEB7097B252774BE00365966 /* MessengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB7097A252774BE00365966 /* MessengerViewController.swift */; };
 		EEB7097D2527750600365966 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB7097C2527750600365966 /* UsersViewController.swift */; };
-		EEB7097F2527B01F00365966 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB7097E2527B01F00365966 /* activeChats.json */; };
-		EEB709812527B02600365966 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB709802527B02600365966 /* waitingChats.json */; };
 		EEB709842527B05400365966 /* Extension + Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB709832527B05400365966 /* Extension + Bundle.swift */; };
 		EEB7098725289E4800365966 /* ActiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB7098625289E4800365966 /* ActiveCell.swift */; };
 		EEB7098A2528B73700365966 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB709892528B73700365966 /* GradientView.swift */; };
 		EEB7098C2528BFC200365966 /* WaitingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB7098B2528BFC200365966 /* WaitingCell.swift */; };
 		EEB7098E2528CBC400365966 /* ChatsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB7098D2528CBC400365966 /* ChatsSection.swift */; };
-		EEB709912528DA9700365966 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB709902528DA9700365966 /* users.json */; };
 		EEB709932528DB6900365966 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB709922528DB6900365966 /* UserInformation.swift */; };
 		EEB709962528DBD100365966 /* UserChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB709952528DBD100365966 /* UserChat.swift */; };
 		EEB709982528DFB900365966 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB709972528DFB900365966 /* UserCell.swift */; };
+		EEC839DC2535E613003BA2EC /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839DB2535E613003BA2EC /* StorageService.swift */; };
+		EEC839DE2535EEC7003BA2EC /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839DD2535EEC7003BA2EC /* Extension + UIImage.swift */; };
+		EEC839E1253604E3003BA2EC /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839E0253604E3003BA2EC /* UsersViewModel.swift */; };
+		EEC839E325360A25003BA2EC /* ListenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839E225360A25003BA2EC /* ListenerService.swift */; };
+		EEC839E525363495003BA2EC /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839E425363495003BA2EC /* ImageService.swift */; };
 		EEF5ED6E25308C4800C38126 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF5ED6D25308C4800C38126 /* UIViewController + Extension.swift */; };
 		EEF5ED702530B75B00C38126 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF5ED6F2530B75B00C38126 /* ProfileViewController.swift */; };
 		EEF5ED722530FC7200C38126 /* StartChatTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF5ED712530FC7200C38126 /* StartChatTextField.swift */; };
@@ -118,17 +120,19 @@
 		EEB70978252773A300365966 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EEB7097A252774BE00365966 /* MessengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerViewController.swift; sourceTree = "<group>"; };
 		EEB7097C2527750600365966 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
-		EEB7097E2527B01F00365966 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
-		EEB709802527B02600365966 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
 		EEB709832527B05400365966 /* Extension + Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Bundle.swift"; sourceTree = "<group>"; };
 		EEB7098625289E4800365966 /* ActiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCell.swift; sourceTree = "<group>"; };
 		EEB709892528B73700365966 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		EEB7098B2528BFC200365966 /* WaitingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingCell.swift; sourceTree = "<group>"; };
 		EEB7098D2528CBC400365966 /* ChatsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsSection.swift; sourceTree = "<group>"; };
-		EEB709902528DA9700365966 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		EEB709922528DB6900365966 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		EEB709952528DBD100365966 /* UserChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChat.swift; sourceTree = "<group>"; };
 		EEB709972528DFB900365966 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		EEC839DB2535E613003BA2EC /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		EEC839DD2535EEC7003BA2EC /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
+		EEC839E0253604E3003BA2EC /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		EEC839E225360A25003BA2EC /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
+		EEC839E425363495003BA2EC /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		EEF5ED6D25308C4800C38126 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		EEF5ED6F2530B75B00C38126 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EEF5ED712530FC7200C38126 /* StartChatTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatTextField.swift; sourceTree = "<group>"; };
@@ -201,6 +205,9 @@
 				EE8B7F052533515200490A72 /* ValidatorService.swift */,
 				EE8B7F0A2533833100490A72 /* FireStoreService.swift */,
 				EE8B7F10253468B500490A72 /* UserError.swift */,
+				EEC839DB2535E613003BA2EC /* StorageService.swift */,
+				EEC839E225360A25003BA2EC /* ListenerService.swift */,
+				EEC839E425363495003BA2EC /* ImageService.swift */,
 			);
 			path = Servises;
 			sourceTree = "<group>";
@@ -276,6 +283,7 @@
 				EEF5ED6D25308C4800C38126 /* UIViewController + Extension.swift */,
 				EEB42F86253102ED0011D979 /* UIView + Extension.swift */,
 				EE8B7F0C2534548700490A72 /* Extension + UIAlertController.swift */,
+				EEC839DD2535EEC7003BA2EC /* Extension + UIImage.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -294,9 +302,6 @@
 		EEB709822527B02F00365966 /* BetaFiles */ = {
 			isa = PBXGroup;
 			children = (
-				EEB7097E2527B01F00365966 /* activeChats.json */,
-				EEB709902528DA9700365966 /* users.json */,
-				EEB709802527B02600365966 /* waitingChats.json */,
 				EEB709832527B05400365966 /* Extension + Bundle.swift */,
 			);
 			path = BetaFiles;
@@ -307,7 +312,7 @@
 			children = (
 				EE8B7F1425349B3A00490A72 /* MainTabBar */,
 				EEB7097A252774BE00365966 /* MessengerViewController.swift */,
-				EEB7097C2527750600365966 /* UsersViewController.swift */,
+				EEC839DF253604AE003BA2EC /* UsersController */,
 				EEF5ED6F2530B75B00C38126 /* ProfileViewController.swift */,
 				EEB42F8A2531D0C80011D979 /* RequestChatViewController.swift */,
 				EE8B7F1225347C3100490A72 /* SettingsViewController.swift */,
@@ -342,6 +347,15 @@
 			path = UserModels;
 			sourceTree = "<group>";
 		};
+		EEC839DF253604AE003BA2EC /* UsersController */ = {
+			isa = PBXGroup;
+			children = (
+				EEB7097C2527750600365966 /* UsersViewController.swift */,
+				EEC839E0253604E3003BA2EC /* UsersViewModel.swift */,
+			);
+			path = UsersController;
+			sourceTree = "<group>";
+		};
 		EF60D8FA7A23107E67A1004B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +377,7 @@
 				EE3A83142517AA9300AF085F /* Frameworks */,
 				EE3A83152517AA9300AF085F /* Resources */,
 				AB4749169A65B0D6CC51A68A /* [CP] Embed Pods Frameworks */,
+				685AD4E18240F57BE02ED641 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -411,18 +426,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEB709912528DA9700365966 /* users.json in Resources */,
 				EE3A83272517AA9400AF085F /* LaunchScreen.storyboard in Resources */,
 				EE3A83312517AF0000AF085F /* GoogleService-Info.plist in Resources */,
-				EEB709812527B02600365966 /* waitingChats.json in Resources */,
 				EE3A83242517AA9400AF085F /* Assets.xcassets in Resources */,
-				EEB7097F2527B01F00365966 /* activeChats.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		685AD4E18240F57BE02ED641 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FireBase2/Pods-FireBase2-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FireBase2/Pods-FireBase2-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FireBase2/Pods-FireBase2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AB4749169A65B0D6CC51A68A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -484,11 +513,13 @@
 				EEB709932528DB6900365966 /* UserInformation.swift in Sources */,
 				EE8B7F062533515200490A72 /* ValidatorService.swift in Sources */,
 				EEF5ED6E25308C4800C38126 /* UIViewController + Extension.swift in Sources */,
+				EEC839DC2535E613003BA2EC /* StorageService.swift in Sources */,
 				EE8B7F1625349B6200490A72 /* MainTabBar.swift in Sources */,
 				EE9557CA251E0E870009E697 /* UILabel + Extension.swift in Sources */,
 				EEB7098A2528B73700365966 /* GradientView.swift in Sources */,
 				EE3A83332517B6B300AF085F /* SecondViewController.swift in Sources */,
 				EE9557E2251E6EEB0009E697 /* AddPhotoImageView.swift in Sources */,
+				EEC839E525363495003BA2EC /* ImageService.swift in Sources */,
 				EEF5ED722530FC7200C38126 /* StartChatTextField.swift in Sources */,
 				EEB709962528DBD100365966 /* UserChat.swift in Sources */,
 				EE8B7F0F253454CB00490A72 /* DatePickerController.swift in Sources */,
@@ -501,6 +532,7 @@
 				EE9557D2251E1B030009E697 /* UIStackView + Extension.swift in Sources */,
 				EE9557E4251F9F360009E697 /* UISegmentControl + Extension.swift in Sources */,
 				EEB42F892531CC990011D979 /* MessagePanel.swift in Sources */,
+				EEC839DE2535EEC7003BA2EC /* Extension + UIImage.swift in Sources */,
 				EE9557C8251E038B0009E697 /* UIColor + Extension.swift in Sources */,
 				EEB7098C2528BFC200365966 /* WaitingCell.swift in Sources */,
 				EE8B7F1325347C3100490A72 /* SettingsViewController.swift in Sources */,
@@ -511,8 +543,10 @@
 				EEB7098725289E4800365966 /* ActiveCell.swift in Sources */,
 				EE3A831B2517AA9300AF085F /* AppDelegate.swift in Sources */,
 				EEB70979252773A300365966 /* MainTabBarController.swift in Sources */,
+				EEC839E1253604E3003BA2EC /* UsersViewModel.swift in Sources */,
 				EEB42F8D2531D19E0011D979 /* AcceptMessagePanel.swift in Sources */,
 				EE3A831D2517AA9300AF085F /* SceneDelegate.swift in Sources */,
+				EEC839E325360A25003BA2EC /* ListenerService.swift in Sources */,
 				EEB709842527B05400365966 /* Extension + Bundle.swift in Sources */,
 				EE8B7F0125324C8600490A72 /* Extension + UIViewController.swift in Sources */,
 				EEB709982528DFB900365966 /* UserCell.swift in Sources */,

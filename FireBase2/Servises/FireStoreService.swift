@@ -14,19 +14,20 @@ class FireStroreService {
     static let shared = FireStroreService()
     private let dataBase = Firestore.firestore()
     
-    private var usersReferene: CollectionReference  {
+    private var usersReferense: CollectionReference  {
         return dataBase.collection("users")
     }
     
     private init() {}
     
-     func saveUserProfile(id: String, email: String, firstName: String, lastName: String, description: String, birthday: Date, sex: String, place: String, userImageString: String, completion: @escaping (Result<UserInformation, Error>) -> Void) {
+    func saveUserProfile(id: String, email: String, firstName: String, lastName: String, description: String, birthday: Date, sex: String, place: String, userImageString: String, completion: @escaping (Result<UserInformation, Error>) -> Void) {
+        
         let user = UserInformation(firstName: firstName, lastName: lastName,
                                    avatarStringURL: userImageString, id: id,
                                    birthday: birthday, description: description,
                                    email: email,
                                    place: place, sex: sex)
-        self.usersReferene.document(user.id).setData(user.dictionaryForSave) { (error) in
+        self.usersReferense.document(user.id).setData(user.dictionaryForSave) { (error) in
             if let error = error {
                 return completion(.failure(error))
                 
@@ -37,7 +38,7 @@ class FireStroreService {
     }
     
     func getUserInformation(user: User, completion: @escaping (Result<UserInformation, Error>) -> Void ) {
-        let userDocReference = usersReferene.document(user.uid)
+        let userDocReference = usersReferense.document(user.uid)
         userDocReference.getDocument { (document, error) in
             if let document = document, document.exists {
                 guard let userInformation = UserInformation(document: document) else {  completion(.failure(UserError.canNotConvertToUSerInformation)) ; return }
@@ -47,6 +48,7 @@ class FireStroreService {
             }
         }
     }
+    
     
     
 }

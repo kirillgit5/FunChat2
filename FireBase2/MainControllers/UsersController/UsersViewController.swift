@@ -11,8 +11,8 @@ import UIKit
 class UsersViewController: UIViewController {
     
     private var collectionView: UICollectionView!
-    private let users = [UserInformation]()
     private var dataSource: UICollectionViewDiffableDataSource<Section, UserInformation>!
+    private let viewModel: UsersViewModelProtocol
     
     enum Section: Int, CaseIterable {
         case users
@@ -25,14 +25,26 @@ class UsersViewController: UIViewController {
         }
     }
     
+    init(viewModel: UsersViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .getWhiteColorForMain()
         setupCollectionView()
         setupSearchBar()
-//        createDataSource()
-//        reloadData()
+        createDataSource()
+        reloadData()
+        viewModel.users.bind {[unowned self] (usersInformation) in
+            self.reloadData()
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidAppear), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidDisappear), name: UIResponder.keyboardDidHideNotification, object: nil)
         
@@ -41,12 +53,12 @@ class UsersViewController: UIViewController {
     private func reloadData() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, UserInformation>()
         snapshot.appendSections([.users])
-        snapshot.appendItems(users, toSection: .users)
+        snapshot.appendItems(viewModel.users.value, toSection: .users)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     private func sortUsers(with symbols: String) {
-        let filtredUsers = users.filter{ (user) -> Bool in
+        let filtredUsers = viewModel.users.value.filter{ (user) -> Bool in
             user.containsSubLine(subLine: symbols)
         }
         var snapshot = NSDiffableDataSourceSnapshot<Section, UserInformation>()
