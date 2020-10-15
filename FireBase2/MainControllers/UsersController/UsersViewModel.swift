@@ -13,10 +13,12 @@ import FirebaseFirestore
 protocol UsersViewModelProtocol {
     var users: Box<[UserInformation]> { get }
     init(user: UserInformation)
+    func getUserAtIndexPath(indexPath: IndexPath) -> UserInformation
+    func getCurrentUser() -> UserInformation
 }
 
 class UsersViewModel: UsersViewModelProtocol {
-    
+
     var users: Box<[UserInformation]> = Box(value: [UserInformation]())
     
     private let user: UserInformation
@@ -35,6 +37,14 @@ class UsersViewModel: UsersViewModelProtocol {
             }
         })
     }
+    
+    func getUserAtIndexPath(indexPath: IndexPath) -> UserInformation {
+        users.value[indexPath.row]
+       }
+    
+    func getCurrentUser() -> UserInformation {
+          user
+      }
     
     deinit {
         listener?.remove()

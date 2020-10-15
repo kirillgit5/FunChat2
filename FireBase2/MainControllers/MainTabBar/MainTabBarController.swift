@@ -26,7 +26,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
         
-        let chatVC = MessengerViewController()
+        let chatVC = MessengerViewController(currentUser: viewModel.getCurrentUser())
         let usersVC = UsersViewController(viewModel: viewModel.getUsersViewModel())
         let settingsVC = SettingsViewController()
         

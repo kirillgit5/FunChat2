@@ -11,9 +11,12 @@ import Foundation
 protocol MainTabBarViewModelProtocol {
     init(user: UserInformation)
     func getUsersViewModel() -> UsersViewModelProtocol
+    func getCurrentUser() -> UserInformation
 }
 
 class MainTabBarViewModel: MainTabBarViewModelProtocol {
+    
+    
     private let user: UserInformation
     
     required init(user: UserInformation) {
@@ -21,8 +24,11 @@ class MainTabBarViewModel: MainTabBarViewModelProtocol {
     }
     
     func getUsersViewModel() -> UsersViewModelProtocol {
-           UsersViewModel(user: user)
-       }
+        UsersViewModel(user: user)
+    }
     
+    func getCurrentUser() -> UserInformation {
+        user
+    }
     
 }

@@ -237,6 +237,10 @@ class SetupProfileViewController: UIViewController {
     
 }
 
+
+
+
+
 //MARK: - UIScrollViewDelegate
 extension SetupProfileViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView)  {

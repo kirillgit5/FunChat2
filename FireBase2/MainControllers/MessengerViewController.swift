@@ -7,50 +7,77 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 
-
-class MessengerViewController: UIViewController {
+class MessengerViewController: UIViewController, UICollectionViewDelegate {
     
     //MARK: - Private Property
     private var collectionView: UICollectionView!
-    private let activeChats = [UserChat]()
-    private let waitingChats = [UserChat]()
+    private var activeChats = [UserChat]()
+    private let currentUser: UserInformation
+    private var activeChatsListener: ListenerRegistration?
+    
+    
     private var dataSource: UICollectionViewDiffableDataSource<Section , UserChat>!
     
     enum Section: Int, CaseIterable {
-        case waitingChats
         case activeChat
         
         func getTextForFooter() -> String {
             switch self {
-            case .waitingChats:
-                return "Waiting chats"
             case .activeChat:
                 return "Active chats"
             }
         }
     }
     
+    init(currentUser: UserInformation) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
         setupCollectionView()
-//        createDataSource()
-//        reloadData()
+        createDataSource()
+        reloadData()
+        
+        activeChatsListener = ListenerService.shared.activeChatsObserve(chats: activeChats, completion: {[unowned self] (result) in
+            switch result {
+            case .success(let chats):
+                self.activeChats = chats
+                self.reloadData()
+            case .failure(let error):
+                self.showAlert(title: "Error!", message: "System Error")
+            }
+        })
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let userChat = activeChats[indexPath.item]
+        let chatVC = ChatInMessengerVC(senderhUser: currentUser, receiverUser: userChat)
+        navigationController?.pushViewController(chatVC, animated: true)
+        
+    }
+    
     
     
     private func reloadData() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, UserChat>()
-        snapshot.appendSections([.waitingChats, .activeChat])
+        snapshot.appendSections([.activeChat])
         snapshot.appendItems(activeChats, toSection: .activeChat)
-        snapshot.appendItems(waitingChats, toSection: .waitingChats)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
@@ -68,15 +95,16 @@ class MessengerViewController: UIViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .getWhiteColorForMain()
-        collectionView.register(WaitingCell.self, forCellWithReuseIdentifier: WaitingCell.reuseId)
+
         collectionView.register(ActiveChatsCell.self, forCellWithReuseIdentifier: ActiveChatsCell.reuseId)
         collectionView.register(ChatSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: ChatSectionHeader.reuseId)
+        collectionView.delegate = self
         view.addSubview(collectionView)
     }
     
-    
-    
-    
+    deinit {
+        activeChatsListener?.remove()
+    }
 }
 
 
@@ -96,8 +124,6 @@ extension MessengerViewController {
             switch section {
             case .activeChat:
                 return  self.createActiveChats()
-            case .waitingChats:
-                return self.createWaitingChats()
             }
         }
         return layout
@@ -121,22 +147,6 @@ extension MessengerViewController {
         return section
     }
     
-    private func createWaitingChats() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(view.bounds.size.width / 4.7), heightDimension: .absolute(view.bounds.size.width / 4.7 + 20))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 18
-        section.contentInsets = .init(top: 16, leading: 20, bottom: 16, trailing: 20)
-        
-       
-        let sectionHeader = createSectionHeader()
-        section.boundarySupplementaryItems = [sectionHeader]
-        section.orthogonalScrollingBehavior = .continuous
-        return section
-    }
-    
     private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
          let sectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(1))
         return NSCollectionLayoutBoundarySupplementaryItem(layoutSize: sectionHeaderSize,
@@ -147,12 +157,6 @@ extension MessengerViewController {
 
 //MARK: - DataSource
 extension MessengerViewController {
-//    private func configure<T: ConfiguringCell, U: Hashable>(cellType: T.Type, with value: U, for indexPath: IndexPath) -> T {
-//        guard   let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseId, for: indexPath) as? T else { fatalError("errror dequeueReusableCell") }
-//        cell.configure(with: value)
-//        return cell
-//    }
-    
     private func createDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, UserChat>(collectionView: collectionView, cellProvider: { [unowned self] (collectionView, indexPath, chat) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else { fatalError("Unknow section kind") }
@@ -160,8 +164,6 @@ extension MessengerViewController {
                 
             case .activeChat:
                 return self.configure(collectionView: collectionView, cellType: ActiveChatsCell.self, with: chat, for: indexPath)
-            case .waitingChats:
-                return self.configure(collectionView: collectionView, cellType: WaitingCell.self, with: chat, for: indexPath)
             }
             
         })
@@ -176,3 +178,4 @@ extension MessengerViewController {
         }
     }
 }
+

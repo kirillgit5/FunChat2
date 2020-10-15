@@ -47,7 +47,6 @@
 		EE9557E6251FCDD30009E697 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9557E5251FCDD30009E697 /* DateManager.swift */; };
 		EEB42F87253102ED0011D979 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB42F86253102ED0011D979 /* UIView + Extension.swift */; };
 		EEB42F892531CC990011D979 /* MessagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB42F882531CC990011D979 /* MessagePanel.swift */; };
-		EEB42F8B2531D0C80011D979 /* RequestChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB42F8A2531D0C80011D979 /* RequestChatViewController.swift */; };
 		EEB42F8D2531D19E0011D979 /* AcceptMessagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB42F8C2531D19E0011D979 /* AcceptMessagePanel.swift */; };
 		EEB70979252773A300365966 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB70978252773A300365966 /* MainTabBarController.swift */; };
 		EEB7097B252774BE00365966 /* MessengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB7097A252774BE00365966 /* MessengerViewController.swift */; };
@@ -65,6 +64,9 @@
 		EEC839E1253604E3003BA2EC /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839E0253604E3003BA2EC /* UsersViewModel.swift */; };
 		EEC839E325360A25003BA2EC /* ListenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839E225360A25003BA2EC /* ListenerService.swift */; };
 		EEC839E525363495003BA2EC /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839E425363495003BA2EC /* ImageService.swift */; };
+		EEC839E72536FA7C003BA2EC /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839E62536FA7C003BA2EC /* ChatViewController.swift */; };
+		EEC839E925371937003BA2EC /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839E825371937003BA2EC /* MMessage.swift */; };
+		EEC839EB253857AA003BA2EC /* ChatInMessengerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC839EA253857AA003BA2EC /* ChatInMessengerVC.swift */; };
 		EEF5ED6E25308C4800C38126 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF5ED6D25308C4800C38126 /* UIViewController + Extension.swift */; };
 		EEF5ED702530B75B00C38126 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF5ED6F2530B75B00C38126 /* ProfileViewController.swift */; };
 		EEF5ED722530FC7200C38126 /* StartChatTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF5ED712530FC7200C38126 /* StartChatTextField.swift */; };
@@ -115,7 +117,6 @@
 		EE9557E5251FCDD30009E697 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		EEB42F86253102ED0011D979 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		EEB42F882531CC990011D979 /* MessagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePanel.swift; sourceTree = "<group>"; };
-		EEB42F8A2531D0C80011D979 /* RequestChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestChatViewController.swift; sourceTree = "<group>"; };
 		EEB42F8C2531D19E0011D979 /* AcceptMessagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptMessagePanel.swift; sourceTree = "<group>"; };
 		EEB70978252773A300365966 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EEB7097A252774BE00365966 /* MessengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +134,9 @@
 		EEC839E0253604E3003BA2EC /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		EEC839E225360A25003BA2EC /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
 		EEC839E425363495003BA2EC /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		EEC839E62536FA7C003BA2EC /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		EEC839E825371937003BA2EC /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
+		EEC839EA253857AA003BA2EC /* ChatInMessengerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInMessengerVC.swift; sourceTree = "<group>"; };
 		EEF5ED6D25308C4800C38126 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		EEF5ED6F2530B75B00C38126 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EEF5ED712530FC7200C38126 /* StartChatTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatTextField.swift; sourceTree = "<group>"; };
@@ -314,8 +318,9 @@
 				EEB7097A252774BE00365966 /* MessengerViewController.swift */,
 				EEC839DF253604AE003BA2EC /* UsersController */,
 				EEF5ED6F2530B75B00C38126 /* ProfileViewController.swift */,
-				EEB42F8A2531D0C80011D979 /* RequestChatViewController.swift */,
 				EE8B7F1225347C3100490A72 /* SettingsViewController.swift */,
+				EEC839E62536FA7C003BA2EC /* ChatViewController.swift */,
+				EEC839EA253857AA003BA2EC /* ChatInMessengerVC.swift */,
 			);
 			path = MainControllers;
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 			children = (
 				EEB709922528DB6900365966 /* UserInformation.swift */,
 				EEB709952528DBD100365966 /* UserChat.swift */,
+				EEC839E825371937003BA2EC /* MMessage.swift */,
 			);
 			path = UserModels;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 				EE9557E2251E6EEB0009E697 /* AddPhotoImageView.swift in Sources */,
 				EEC839E525363495003BA2EC /* ImageService.swift in Sources */,
 				EEF5ED722530FC7200C38126 /* StartChatTextField.swift in Sources */,
+				EEC839EB253857AA003BA2EC /* ChatInMessengerVC.swift in Sources */,
 				EEB709962528DBD100365966 /* UserChat.swift in Sources */,
 				EE8B7F0F253454CB00490A72 /* DatePickerController.swift in Sources */,
 				EEB42F87253102ED0011D979 /* UIView + Extension.swift in Sources */,
@@ -528,12 +535,12 @@
 				EE8B7F0925337D9300490A72 /* SetupProfileViewModel.swift in Sources */,
 				EEB7098E2528CBC400365966 /* ChatsSection.swift in Sources */,
 				EE8B7F11253468B500490A72 /* UserError.swift in Sources */,
-				EEB42F8B2531D0C80011D979 /* RequestChatViewController.swift in Sources */,
 				EE9557D2251E1B030009E697 /* UIStackView + Extension.swift in Sources */,
 				EE9557E4251F9F360009E697 /* UISegmentControl + Extension.swift in Sources */,
 				EEB42F892531CC990011D979 /* MessagePanel.swift in Sources */,
 				EEC839DE2535EEC7003BA2EC /* Extension + UIImage.swift in Sources */,
 				EE9557C8251E038B0009E697 /* UIColor + Extension.swift in Sources */,
+				EEC839E925371937003BA2EC /* MMessage.swift in Sources */,
 				EEB7098C2528BFC200365966 /* WaitingCell.swift in Sources */,
 				EE8B7F1325347C3100490A72 /* SettingsViewController.swift in Sources */,
 				EE8B7F0D2534548700490A72 /* Extension + UIAlertController.swift in Sources */,
@@ -554,6 +561,7 @@
 				EE8B7EF925321E6E00490A72 /* AuthService.swift in Sources */,
 				EE9557D4251E1DB00009E697 /* SingUpWithEmailViewController.swift in Sources */,
 				EE8B7EFF2532304400490A72 /* Boxing.swift in Sources */,
+				EEC839E72536FA7C003BA2EC /* ChatViewController.swift in Sources */,
 				EE8B7F182534AC4C00490A72 /* AuthScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

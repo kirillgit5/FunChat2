@@ -35,9 +35,14 @@ class ActiveChatsCell: UICollectionViewCell, ConfiguringCell {
     
     func configure<T>(with value: T) where T : Hashable {
          guard let userChat = value as? UserChat else { return }
-//        if userChat.userImageString
          username.text = userChat.username
          userLastMessage.text = userChat.lastMessage
+        
+        if userChat.userImageString == "default" {
+            userImage.image = UIImage(named: "avatar")
+        } else {
+            userImage.fetchImage(from: userChat.userImageString)
+        }
      }
     
     private func setupConstraint() {

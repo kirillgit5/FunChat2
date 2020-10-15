@@ -18,7 +18,7 @@ class AuntificationViewController: UIViewController {
     
     //MARK: - Views
     
-    private let logoImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"), contentMode: .scaleAspectFit)
+    private let logoImageView = UILabel(text: "FunChat", font: UIFont.getFontAvenir26())
     
     private let googleLabel = UILabel(text: "Sign up with")
     private let onboardeLabel = UILabel(text: "Already onboard?")

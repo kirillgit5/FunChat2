@@ -11,6 +11,7 @@ import Foundation
 enum UserError: Error {
     case canNotConvertToUSerInformation
     case userDidNotFinishRegistration
+    case userDidNotHaveChat
 }
 
 extension UserError: LocalizedError {

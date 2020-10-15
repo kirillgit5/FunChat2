@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UsersViewController: UIViewController {
+class UsersViewController: UIViewController, UICollectionViewDelegate {
     
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, UserInformation>!
@@ -50,6 +50,14 @@ class UsersViewController: UIViewController {
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let user = viewModel.getUserAtIndexPath(indexPath: indexPath)
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let profileVC = ProfileViewController(user: user, currentUser: viewModel.getCurrentUser())
+        navigationController?.pushViewController(profileVC, animated: true)
+        
+    }
+    
     private func reloadData() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, UserInformation>()
         snapshot.appendSections([.users])
@@ -73,6 +81,7 @@ class UsersViewController: UIViewController {
         collectionView.backgroundColor = .getWhiteColorForMain()
         collectionView.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reuseId)
         collectionView.register(ChatSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: ChatSectionHeader.reuseId)
+        collectionView.delegate = self
         
         view.addSubview(collectionView)
     }
@@ -123,6 +132,7 @@ class UsersViewController: UIViewController {
                                                            alignment: .top)
     }
     
+    
     @objc func keyboardDidAppear(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         let keyboardFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
@@ -156,6 +166,11 @@ extension UsersViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         reloadData()
     }
+}
+
+//MARK: - UIColletionViewDelegte
+extension SetupProfileViewController: UICollectionViewDelegate {
+    
 }
 
 
